@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 
-export default function Plans() {
+export default function Plans(props) {
   const [services, setServices] = useState();
-
+  const { stepNext } = props;
+  console.log(stepNext);
   useEffect(() => {
     async function getData() {
       const resServices = await fetch("http://localhost:3000/api/services");
@@ -14,7 +15,7 @@ export default function Plans() {
   }, []);
 
   const [selected, setSelected] = useState();
-  const [] = useState()
+  const [] = useState();
   const oneHour = new Date(new Date().getTime() + 1 * 60 * 60 * 1000);
   const hourAndHalf = new Date(new Date().getTime() + 1.5 * 60 * 60 * 1000);
   const twoHours = new Date(new Date().getTime() + 2 * 60 * 60 * 1000);
@@ -73,6 +74,12 @@ export default function Plans() {
             ))}
           </div>
         </RadioGroup>
+        <button
+          onClick={() => {
+            stepNext(selected);
+          }}>
+          Далее
+        </button>
       </div>
     </div>
   );
