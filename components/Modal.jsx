@@ -6,6 +6,8 @@ import Credentials from "./Credentials";
 function Modal({ open, onClose, selected }) {
   const [step, setStep] = useState(1);
   const [datas, setDatas] = useState({});
+console.log(selected,'selected');
+
 
   function stepNext(service) {
     setStep((step) => step + 1);
