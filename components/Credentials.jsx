@@ -1,15 +1,33 @@
 import { useState } from "react";
+import { format, parse } from "date-fns";
+import { ru } from "date-fns/locale";
 
 function Credentials(props) {
-  const { service } = props;
+  const { startTime, bookingDate, service } = props;
+  console.log(props, "props in Credentials");
+  console.log(bookingDate, "bookingDate");
+  console.log(service);
+
+  function addMinutes(date, minutes) {
+    console.log(date, 'date');
+    console.log(date.getMinutes(), 'getMinutes');
+    date.setMinutes(date.getMinutes() + minutes);
+    return date;
+  }
 
   const [form, setForm] = useState({
-    startDateTime: "",
-    endDateTime: "",
+    startDateTime: bookingDate + " " + startTime,
+    endDateTime: format(addMinutes(
+      new Date(
+        parse(bookingDate + " " + startTime, "dd.MM.yyyy HH:mm", new Date())
+      ),
+      service?.service?.minutes
+    ), 'dd.MM.yyyy HH:mm'),
     name: "",
     tel: "",
     email: "",
   });
+  console.log(form.endDateTime, "formdata");
 
   return (
     <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">

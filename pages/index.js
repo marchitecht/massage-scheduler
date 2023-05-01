@@ -3,7 +3,6 @@ import Image from "next/image";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Calendar from "../components/Calendar";
-import Services from "../components/Services";
 import Radiogroup from "../components/Radiogroup";
 
 import dayjs from "dayjs";

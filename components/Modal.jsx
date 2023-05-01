@@ -3,10 +3,9 @@ import { Dialog, Transition } from "@headlessui/react";
 import Plans from "./Plans";
 import Credentials from "./Credentials";
 
-function Modal({ open, onClose, selected }) {
+function Modal({ open, onClose, selected, bookingDate }) {
   const [step, setStep] = useState(1);
   const [datas, setDatas] = useState({});
-console.log(selected,'selected');
 
 
   function stepNext(service) {
@@ -16,12 +15,11 @@ console.log(selected,'selected');
 
       return forData;
     });
-    console.log(service, "service");
   }
 
   const obj = {
     1: <Plans stepNext={stepNext} />,
-    2: <Credentials service={datas.service} />,
+    2: <Credentials service={datas} startTime={selected} bookingDate={bookingDate}/>,
   };
 
   const stepDec = () => {
@@ -54,7 +52,7 @@ console.log(selected,'selected');
               <Dialog.Panel>
                 <Dialog.Title>Начало сеанса в {selected}</Dialog.Title>
                 <Dialog.Description>
-                  {datas?.service ? datas?.service : "Выберите услугу:"}
+                  {datas?.service?.title ? datas?.service?.title : "Выберите услугу:"}
                 </Dialog.Description>
                 {/* <Plans />
                   <Credentials/> */}

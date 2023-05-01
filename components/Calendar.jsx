@@ -16,7 +16,7 @@ import {
   startOfToday,
 } from "date-fns";
 import dayjs from "dayjs";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { range } from "../utils/timeRange";
 import Radiogroup from "./Radiogroup";
 import SubmitForm from "./SubmitForm";
@@ -28,6 +28,12 @@ function classNames(...classes) {
 export default function Calendar({ meetings, services }) {
   let today = startOfToday();
   let [selectedDay, setSelectedDay] = useState(today);
+  console.log(selectedDay, "selectedDayselectedDay");
+
+  useEffect(() => {
+    console.log(format(selectedDay, "dd.MM.yyyy"), "in useeff selecteday");
+  }, [selectedDay]);
+
   let [currentMonth, setCurrentMonth] = useState(format(today, "MMM-yyyy"));
   let firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
 
@@ -46,23 +52,21 @@ export default function Calendar({ meetings, services }) {
     setCurrentMonth(format(firstDayNextMonth, "MMM-yyyy"));
   }
 
-  let selectedDayMeetings = meetings.filter(
-    (meeting) => {
-      let time = meeting.startDatetime.slice(11);
-      let formatted = meeting.startDatetime.slice(0, 11).split(".");
-      let formattedTo = dayjs(
-        `${formatted[1]}.${formatted[0]}.${formatted[2]} ${time}`
-      ).$d;
-      return isSameDay(formattedTo, selectedDay);
-    }
-  );
-
+  let selectedDayMeetings = meetings.filter((meeting) => {
+    let time = meeting.startDatetime.slice(11);
+    let formatted = meeting.startDatetime.slice(0, 11).split(".");
+    let formattedTo = dayjs(
+      `${formatted[1]}.${formatted[0]}.${formatted[2]} ${time}`
+    ).$d;
+    return isSameDay(formattedTo, selectedDay);
+  });
 
   const arrDates = selectedDayMeetings.map((meeting) => {
     let time = meeting.startDatetime.slice(11, 16);
     let timeEnd = meeting.endDatetime.slice(11, 16);
     return [time, timeEnd];
   });
+  console.log(arrDates, "arrdatessss");
 
   return (
     <div className="pt-12 pb-12 bg-black">
@@ -134,7 +138,6 @@ export default function Calendar({ meetings, services }) {
                       {format(day, "d")}
                     </time>
                   </button>
-
                 </div>
               ))}
             </div>
@@ -150,6 +153,7 @@ export default function Calendar({ meetings, services }) {
               {/* {selectedDayMeetings.length > 0 ? (
                 selectedDayMeetings.map((meeting) => ( */}
               <Radiogroup
+                bookingDate={format(selectedDay, "dd.MM.yyyy")}
                 time={arrDates}
                 // startTime={dayjs(meeting.startDatetime).format("HH:mm")}
                 // endTime={dayjs(meeting.endDatetime).format("HH:mm")}
@@ -167,7 +171,6 @@ export default function Calendar({ meetings, services }) {
     </div>
   );
 }
-
 
 let colStartClasses = [
   "",

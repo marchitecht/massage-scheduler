@@ -5,6 +5,8 @@ export default function Plans(props) {
   const [services, setServices] = useState();
   const { stepNext } = props;
   console.log(stepNext);
+
+  //API CALL
   useEffect(() => {
     async function getData() {
       const resServices = await fetch("http://localhost:3000/api/services");
@@ -13,23 +15,40 @@ export default function Plans(props) {
     }
     getData();
   }, []);
+  console.log(services, "services minutes");
 
   const [selected, setSelected] = useState();
-  const [] = useState();
+
+  useEffect(() => {
+    if(services){
+      console.log('in useEff');
+      setSelected(services[0])
+    }
+  }, [services]);
+
   const oneHour = new Date(new Date().getTime() + 1 * 60 * 60 * 1000);
+  console.log(oneHour, "ONE");
+
   const hourAndHalf = new Date(new Date().getTime() + 1.5 * 60 * 60 * 1000);
+  console.log(hourAndHalf, "ONEHALF");
+
   const twoHours = new Date(new Date().getTime() + 2 * 60 * 60 * 1000);
+  console.log(twoHours, "TWO");
 
   return (
     <div className="w-full px-4 py-16">
       <div className="mx-auto w-full max-w-md">
-        <RadioGroup value={selected} onChange={setSelected}>
+        <RadioGroup
+          value={selected}
+          onChange={(e) => {
+            console.log(e, "etargetVal");
+          }}>
           <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
           <div className="space-y-2">
-            {services?.map(({ id, title, minutes, price }) => (
+            {services?.map((plan) => (
               <RadioGroup.Option
-                key={id}
-                value={title}
+                key={plan.id}
+                value={plan}
                 className={({ active, checked }) =>
                   `${
                     active
@@ -51,14 +70,14 @@ export default function Plans(props) {
                             className={`font-medium  ${
                               checked ? "text-white" : "text-gray-900"
                             }`}>
-                            {title}
+                            {plan.title} 
                           </RadioGroup.Label>
                           <RadioGroup.Description
                             as="span"
                             className={`inline ${
                               checked ? "text-sky-100" : "text-gray-500"
                             }`}>
-                            <span>{price} руб</span>
+                            <span>{plan.price} руб</span>
                           </RadioGroup.Description>
                         </div>
                       </div>

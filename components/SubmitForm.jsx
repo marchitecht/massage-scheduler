@@ -3,7 +3,8 @@ import cx from "classnames";
 import dayjs from "dayjs";
 import Modal from "../components/Modal";
 
-const SubmitForm = ({ selected }) => {
+const SubmitForm = ({ selected, bookingDate }) => {
+  console.log(bookingDate, 'bookingDate in submit form');
   const fullTime = dayjs().format("YYYY-MM-DD").concat("T").concat(selected);
   const date = dayjs().format("YYYY-MM-DD");
   // console.log(date, "date");
@@ -21,7 +22,7 @@ const SubmitForm = ({ selected }) => {
     const form = {
       selected,
     };
-    console.log(form);
+    console.log(form, 'form in SubmitForm');
   };
 
   return (
@@ -43,7 +44,7 @@ const SubmitForm = ({ selected }) => {
           </button>
         </div>
       </form>
-      {open && <Modal open={open} onClose={handleCloseModal} selected={selected} />}
+      {open && <Modal bookingDate={bookingDate} open={open} onClose={handleCloseModal} selected={selected} />}
     </>
   );
 };

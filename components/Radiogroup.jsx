@@ -4,7 +4,8 @@ import { range } from "../utils/timeRange";
 import dayjs from "dayjs";
 import SubmitForm from "./SubmitForm";
 
-export default function Radiogroup({ time }) {
+export default function Radiogroup({ time, bookingDate }) {
+  console.log(bookingDate, "in radiogroup bookingDate");
   let start = [];
   let between = [];
   let end = [];
@@ -38,7 +39,7 @@ export default function Radiogroup({ time }) {
   const indexes = [...new Set(list)];
 
   const [selected, setSelected] = useState(null);
-  console.log(selected, 'selected');
+  console.log(selected, "selected in radio group");
 
   return (
     <>
@@ -82,7 +83,7 @@ export default function Radiogroup({ time }) {
           ))}
         </div>
       </RadioGroup>
-      {selected && <SubmitForm selected={selected} />}
+      {selected && <SubmitForm bookingDate={bookingDate} selected={selected} />}
     </>
   );
 }
