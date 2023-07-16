@@ -3,7 +3,7 @@ import { AiOutlineCalendar } from "react-icons/ai";
 const Hero = () => {
   return (
     <div className="w-full h-screen">
-      <video autoPlay loop muted className="w-full h-screen z-10 object-cover">
+      <video autoPlay loop muted className="w-full h-screen object-cover">
         <source src="/video.mp4" type="video/mp4" />
       </video>
 

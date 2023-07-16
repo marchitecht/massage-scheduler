@@ -7,26 +7,25 @@ import Radiogroup from "../components/Radiogroup";
 
 import dayjs from "dayjs";
 
-
 export default function Home({ res, meetings, services }) {
-  const jsonData = res.data?.map(([id, title, content]) => ({
-    id: Number(id),
-    title,
-    content,
-  }));
-  const jsonMeetings = meetings.map(
-    ([id, startDatetime, endDatetime, status, name]) => ({
-      id: Number(id),
-      startDatetime,
-      endDatetime,
-      status,
-      name,
-    })
-  );
+  // const jsonData = res.data?.map(([id, title, content]) => ({
+  //   id: Number(id),
+  //   title,
+  //   content,
+  // }));
+  // const jsonMeetings = meetings.map(
+  //   ([id, startDatetime, endDatetime, status, name]) => ({
+  //     id: Number(id),
+  //     startDatetime,
+  //     endDatetime,
+  //     status,
+  //     name,
+  //   })
+  // );
   // const jsonServices = services.map(
   //   ([id, title, description, minutes, price]) => ({
   //     id: Number(id),
-  //     title, 
+  //     title,
   //     description,
   //     minutes: Number(minutes),
   //     price: Number(price)
@@ -46,7 +45,9 @@ export default function Home({ res, meetings, services }) {
       </Head>
       <main>
         <Hero />
-        <Calendar services={services} meetings={jsonMeetings}  />
+        {/* <Calendar 
+        services={services} meetings={jsonMeetings}
+         /> */}
         <Footer />
       </main>
     </>
@@ -54,11 +55,11 @@ export default function Home({ res, meetings, services }) {
 }
 
 export async function getServerSideProps() {
-  const req = await fetch("http://localhost:3000/api/sheets");
-  const res = await req.json();
+  // const req = await fetch("http://localhost:3000/api/sheets");
+  // const res = await req.json();
 
-  const reqMeet = await fetch("http://localhost:3000/api/meetings");
-  const resMeet = await reqMeet.json();
+  // const reqMeet = await fetch("http://localhost:3000/api/meetings");
+  // const resMeet = await reqMeet.json();
 
   // const reqServices = await fetch("http://localhost:3000/api/services");
   // const resServices = await reqServices.json();
@@ -66,8 +67,8 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      res,
-      meetings: resMeet.data,
+      // res,
+      // meetings: resMeet.data,
       // services: resServices.data
     },
   };
