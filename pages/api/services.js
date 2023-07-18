@@ -34,7 +34,9 @@ export default function handler(req, res) {
           price: Number(price),
         }))
         .slice(1);
-      console.log(services);
+      // console.log(services);
+
+
 
       return res.status(200).send(JSON.stringify(services));
     });

@@ -28,10 +28,10 @@ function classNames(...classes) {
 export default function Calendar({ meetings, services }) {
   let today = startOfToday();
   let [selectedDay, setSelectedDay] = useState(today);
-  console.log(selectedDay, "selectedDayselectedDay");
+  // console.log(selectedDay, "selectedDayselectedDay");
 
   useEffect(() => {
-    console.log(format(selectedDay, "dd.MM.yyyy"), "in useeff selecteday");
+    // console.log(format(selectedDay, "dd.MM.yyyy"), "in useeff selecteday");
   }, [selectedDay]);
 
   let [currentMonth, setCurrentMonth] = useState(format(today, "MMM-yyyy"));
@@ -66,7 +66,7 @@ export default function Calendar({ meetings, services }) {
     let timeEnd = meeting.endDatetime.slice(11, 16);
     return [time, timeEnd];
   });
-  console.log(arrDates, "arrdatessss");
+  // console.log(arrDates, "arrdatessss");
 
   return (
     <div className="pt-12 pb-12 bg-black">

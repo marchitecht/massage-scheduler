@@ -7,8 +7,7 @@ function Modal({ open, onClose, selected, bookingDate }) {
   const [step, setStep] = useState(1);
   const [datas, setDatas] = useState({});
 
-
-  function stepNext(service) {
+function stepNext(service) {
     setStep((step) => step + 1);
     setDatas((data) => {
       const forData = { ...data, service };
@@ -16,10 +15,9 @@ function Modal({ open, onClose, selected, bookingDate }) {
       return forData;
     });
   }
-
   const obj = {
     1: <Plans stepNext={stepNext} />,
-    2: <Credentials service={datas} startTime={selected} bookingDate={bookingDate}/>,
+    2: <Credentials  service={datas} startTime={selected} bookingDate={bookingDate}/>,
   };
 
   const stepDec = () => {
@@ -29,7 +27,7 @@ function Modal({ open, onClose, selected, bookingDate }) {
   return (
     <Transition appear show={open} as={Fragment}>
       <Dialog onClose={onClose} className="fixed inset-0 z-10 overflow-y-auto">
-        <div className="min-h-screen px-4 text-center">
+        <div className="min-h-screen px-8 text-center">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -54,8 +52,7 @@ function Modal({ open, onClose, selected, bookingDate }) {
                 <Dialog.Description>
                   {datas?.service?.title ? datas?.service?.title : "Выберите услугу:"}
                 </Dialog.Description>
-                {/* <Plans />
-                  <Credentials/> */}
+              
                 {obj[step]}
               </Dialog.Panel>
             </div>

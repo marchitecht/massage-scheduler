@@ -1,33 +1,63 @@
 import { useState } from "react";
 import { format, parse } from "date-fns";
 import { ru } from "date-fns/locale";
+import uuid from "react-uuid";
 
 function Credentials(props) {
   const { startTime, bookingDate, service } = props;
-  console.log(props, "props in Credentials");
-  console.log(bookingDate, "bookingDate");
-  console.log(service);
+  // console.log(props, "props in Credentials");
+  // console.log(bookingDate, "bookingDate");
+  // console.log(service.service.title, "IN CREDENTIALS");
 
   function addMinutes(date, minutes) {
-    console.log(date, 'date');
-    console.log(date.getMinutes(), 'getMinutes');
+    console.log(date, "date");
+    console.log(date.getMinutes(), "getMinutes");
     date.setMinutes(date.getMinutes() + minutes);
     return date;
   }
-
-  const [form, setForm] = useState({
-    startDateTime: bookingDate + " " + startTime,
-    endDateTime: format(addMinutes(
-      new Date(
-        parse(bookingDate + " " + startTime, "dd.MM.yyyy HH:mm", new Date())
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
+  const [email, setEmail] = useState("");
+const [data, setData] = useState(null)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = {
+      id: uuid(),
+      startDateTime: bookingDate + " " + startTime,
+      endDateTime: format(
+        addMinutes(
+          new Date(
+            parse(bookingDate + " " + startTime, "dd.MM.yyyy HH:mm", new Date())
+          ),
+          service?.service?.minutes
+        ),
+        "dd.MM.yyyy HH:mm"
       ),
-      service?.service?.minutes
-    ), 'dd.MM.yyyy HH:mm'),
-    name: "",
-    tel: "",
-    email: "",
-  });
-  console.log(form.endDateTime, "formdata");
+      service: service.service.title,
+      name: name,
+      tel: tel,
+      email: email,
+    };
+
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ form: form }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        setData(result);
+      } else {
+        throw new Error('Request failed');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
@@ -35,7 +65,23 @@ function Credentials(props) {
         Пришлем подтверждение на почту :)
       </h2>
 
-      <form action="#" className="space-y-8">
+      <form action="#" className="space-y-8" onSubmit={handleSubmit}>
+        <div>
+          <label
+            for="email"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            Как вас зовут?
+          </label>
+          <input
+            type="text"
+            id="text"
+            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+            placeholder="Имя"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
         <div>
           <label
             for="email"
@@ -48,6 +94,8 @@ function Credentials(props) {
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
             placeholder="ваш@имейл.com"
             required
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
         </div>
         <div>
@@ -62,10 +110,13 @@ function Credentials(props) {
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
             placeholder=""
             required
+            value={tel}
+            onChange={(e) => setTel(e.target.value)}
           />
         </div>
 
         <button
+        // onSubmit={handleSubmit}
           type="submit"
           className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
           Send message

@@ -4,9 +4,10 @@ import dayjs from "dayjs";
 import Modal from "../components/Modal";
 
 const SubmitForm = ({ selected, bookingDate }) => {
-  console.log(bookingDate, 'bookingDate in submit form');
+  // console.log(bookingDate, 'bookingDate in submit form');
   const fullTime = dayjs().format("YYYY-MM-DD").concat("T").concat(selected);
   const date = dayjs().format("YYYY-MM-DD");
+  console.log('selected in Submitform', selected);
   // console.log(date, "date");
   // console.log(fullTime, "full");
 
@@ -22,7 +23,7 @@ const SubmitForm = ({ selected, bookingDate }) => {
     const form = {
       selected,
     };
-    console.log(form, 'form in SubmitForm');
+    // console.log(form, 'form in SubmitForm');
   };
 
   return (

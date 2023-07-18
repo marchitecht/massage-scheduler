@@ -4,7 +4,7 @@ import { RadioGroup } from "@headlessui/react";
 export default function Plans(props) {
   const [services, setServices] = useState();
   const { stepNext } = props;
-  console.log(stepNext);
+  // console.log(stepNext);
 
   //API CALL
   useEffect(() => {
@@ -15,25 +15,26 @@ export default function Plans(props) {
     }
     getData();
   }, []);
-  console.log(services, "services minutes");
+  // console.log(services, "services minutes");
 
   const [selected, setSelected] = useState();
-
+// console.log(selected, 'SELECTED');
   useEffect(() => {
-    if(services){
-      console.log('in useEff');
-      setSelected(services[0])
+    if (services) {
+     
+      setSelected(services[0]);
     }
   }, [services]);
 
   const oneHour = new Date(new Date().getTime() + 1 * 60 * 60 * 1000);
-  console.log(oneHour, "ONE");
+  // console.log(oneHour, "ONE");
 
   const hourAndHalf = new Date(new Date().getTime() + 1.5 * 60 * 60 * 1000);
-  console.log(hourAndHalf, "ONEHALF");
+  // console.log(hourAndHalf, "ONEHALF");
 
   const twoHours = new Date(new Date().getTime() + 2 * 60 * 60 * 1000);
-  console.log(twoHours, "TWO");
+  // console.log(twoHours, "TWO");
+  console.log(services, 'SERVICES IN PLANS');
 
   return (
     <div className="w-full px-4 py-16">
@@ -41,25 +42,28 @@ export default function Plans(props) {
         <RadioGroup
           value={selected}
           onChange={(e) => {
-            console.log(e, "etargetVal");
+            setSelected(e)
           }}>
-          <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
+          {/* <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label> */}
           <div className="space-y-2">
             {services?.map((plan) => (
               <RadioGroup.Option
-                key={plan.id}
+                key={plan.title}
                 value={plan}
                 className={({ active, checked }) =>
-                  `${
+                  `
+                  ${
                     active
-                      ? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300"
+                      ? "ring-2 ring-white ring-opacity-60 ring-offset-2 "
                       : ""
                   }
                   ${
                     checked ? "bg-sky-900 bg-opacity-75 text-white" : "bg-white"
                   }
-                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
-                }>
+                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none
+                    `
+                }
+                >
                 {({ active, checked }) => (
                   <>
                     <div className="flex w-full items-center justify-between">
@@ -70,7 +74,7 @@ export default function Plans(props) {
                             className={`font-medium  ${
                               checked ? "text-white" : "text-gray-900"
                             }`}>
-                            {plan.title} 
+                            {plan.title}
                           </RadioGroup.Label>
                           <RadioGroup.Description
                             as="span"
