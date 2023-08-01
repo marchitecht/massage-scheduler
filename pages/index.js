@@ -55,7 +55,6 @@ export async function getServerSideProps() {
 
   const reqServices = await fetch("https://schpakov.com/api/services");
   const resServices = await reqServices.json();
-  // console.log(resServices.data, "getSetver");
 
   return {
     props: {

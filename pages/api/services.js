@@ -24,7 +24,6 @@ export default function handler(req, res) {
       };
 
       let data = await gsapi.spreadsheets.values.get(opt);
-      // console.log(data, 'sheets');
       const services = data.data.values
         .map(([id, title, description, minutes, price]) => ({
           id: Number(id),
@@ -34,7 +33,7 @@ export default function handler(req, res) {
           price: Number(price),
         }))
         .slice(1);
-      // console.log(services);
+      console.log(services);
 
 
 
