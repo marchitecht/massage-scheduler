@@ -9,7 +9,6 @@ import dayjs from "dayjs";
 import Plans from "../components/Plans";
 
 export default function Home({ res, meetings, services }) {
-  
   const jsonMeetings = meetings.map(
     ([id, startDatetime, endDatetime, status, name]) => ({
       id: Number(id),
@@ -42,21 +41,19 @@ export default function Home({ res, meetings, services }) {
       </Head>
       <main>
         <Hero meetings={jsonMeetings} />
-      
       </main>
-      
     </>
   );
 }
 
 export async function getServerSideProps() {
-  const req = await fetch("http://localhost:3000/api/sheets");
+  const req = await fetch("https://schpakov.com/api/sheets");
   const res = await req.json();
 
-  const reqMeet = await fetch("http://localhost:3000/api/meetings");
+  const reqMeet = await fetch("https://schpakov.com/api/meetings");
   const resMeet = await reqMeet.json();
 
-  const reqServices = await fetch("http://localhost:3000/api/services");
+  const reqServices = await fetch("https://schpakov.com/api/services");
   const resServices = await reqServices.json();
   // console.log(resServices.data, "getSetver");
 
