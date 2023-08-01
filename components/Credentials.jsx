@@ -2,23 +2,20 @@ import { useState } from "react";
 import { format, parse } from "date-fns";
 import { ru } from "date-fns/locale";
 import uuid from "react-uuid";
+import { Dialog } from "@headlessui/react";
 
 function Credentials(props) {
   const { startTime, bookingDate, service } = props;
-  // console.log(props, "props in Credentials");
-  // console.log(bookingDate, "bookingDate");
-  // console.log(service.service.title, "IN CREDENTIALS");
 
   function addMinutes(date, minutes) {
-    console.log(date, "date");
-    console.log(date.getMinutes(), "getMinutes");
     date.setMinutes(date.getMinutes() + minutes);
     return date;
   }
   const [name, setName] = useState("");
   const [tel, setTel] = useState("");
   const [email, setEmail] = useState("");
-const [data, setData] = useState(null)
+  const [data, setData] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = {
@@ -40,19 +37,22 @@ const [data, setData] = useState(null)
     };
 
     try {
-      const response = await fetch('/api/submit', {
-        method: 'POST',
+      const response = await fetch("/api/submit", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ form: form }),
       });
 
       if (response.ok) {
         const result = await response.json();
-        setData(result);
+        console.log(setIsOpen(true), "SETISOPEN");
+
+        await setData(result);
+        await setIsOpen(true);
       } else {
-        throw new Error('Request failed');
+        throw new Error("Request failed");
       }
     } catch (error) {
       console.error(error);
@@ -66,9 +66,31 @@ const [data, setData] = useState(null)
       </h2>
 
       <form action="#" className="space-y-8" onSubmit={handleSubmit}>
+        <div className="relative mb-6">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+            <svg
+              className="w-4 h-4 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 16">
+              <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+              <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+            </svg>
+          </div>
+          <input
+            type="text"
+            id="input-group-1"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="ваш@имейл.com"
+            required
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+        </div>
         <div>
           <label
-            for="email"
+            htmlFor="email"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Как вас зовут?
           </label>
@@ -82,25 +104,10 @@ const [data, setData] = useState(null)
             onChange={(e) => setName(e.target.value)}
           />
         </div>
+
         <div>
           <label
-            for="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-            Ваша почта
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-            placeholder="ваш@имейл.com"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </div>
-        <div>
-          <label
-            for="tel"
+            htmlFor="tel"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Ваш телефон{" "}
           </label>
@@ -115,12 +122,34 @@ const [data, setData] = useState(null)
           />
         </div>
 
-        <button
-        // onSubmit={handleSubmit}
-          type="submit"
-          className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Send message
-        </button>
+        {isOpen ? (
+          <div
+            className="flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800"
+            role="alert">
+            <svg
+              className="w-5 h-5 text-blue-600 dark:text-blue-500 rotate-45"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 18 20">
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
+              />
+            </svg>
+            <div className="pl-4 text-sm font-normal">Вы успешно записаны!</div>
+          </div>
+        ) : (
+          <button
+            onSubmit={handleSubmit}
+            type="submit"
+            className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+            Назначить встречу
+          </button>
+        )}
       </form>
     </div>
   );

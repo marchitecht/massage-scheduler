@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 import Plans from "../components/Plans";
 
 export default function Home({ res, meetings, services }) {
+  
   const jsonMeetings = meetings.map(
     ([id, startDatetime, endDatetime, status, name]) => ({
       id: Number(id),
@@ -40,14 +41,10 @@ export default function Home({ res, meetings, services }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Hero />
-        <Calendar
-          // services={jsonServices}
-          meetings={jsonMeetings}
-        />
-        {/* <Plans /> */}
-         <Footer />
+        <Hero meetings={jsonMeetings} />
+      
       </main>
+      
     </>
   );
 }
