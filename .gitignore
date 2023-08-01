@@ -5,4 +5,4 @@ out/
 .env.local
 .idea/
 package-lock.json
-secrets.json
+# secrets.json
