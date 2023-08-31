@@ -132,7 +132,7 @@ const Hero = ({ meetings }) => {
             </svg>
           </a>
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900  md:text-5xl lg:text-6xl ">
-            Массажная студия Юрия Шмакова
+            Массажная студия Юрия Шпакова
           </h1>
           <p className="mb-8 text-lg font-normal text-gray-800  lg:text-xl sm:px-16 xl:px-48 ">
             Ваше здоровье – наша главная цель. Мы помогаем людям улучшить свое
