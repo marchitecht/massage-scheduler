@@ -7,6 +7,7 @@ import Radiogroup from "../components/Radiogroup";
 
 import dayjs from "dayjs";
 import Plans from "../components/Plans";
+import ContentSection from "../components/ContentSection";
 
 export default function Home({ res, meetings, services }) {
   const jsonMeetings = meetings.map(
@@ -42,6 +43,7 @@ export default function Home({ res, meetings, services }) {
       <main>
         <Hero meetings={jsonMeetings} />
       </main>
+      
     </>
   );
 }

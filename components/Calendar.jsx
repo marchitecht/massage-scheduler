@@ -69,7 +69,7 @@ export default function Calendar({ meetings, services }) {
   // console.log(arrDates, "arrdatessss");
 
   return (
-    <div className="pt-12 pb-12 bg-black">
+    <div className="pt-12 pb-12 bg-gray-900">
       <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
         <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-100">
           <div className="md:pr-14">
