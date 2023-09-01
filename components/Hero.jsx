@@ -107,11 +107,11 @@ const Hero = ({ meetings }) => {
           </div>
         </div>
       </section>
-      <section className=" grid px-10 py-48 lg:py-4 mx-auto max-w-screen-3xl bg-gradient-to-b from-black/90  absolute top-0 left-0 w-full h-[50vh] ">
+      <section className=" grid px-10 py-44 lg:py-4 mx-auto max-w-screen-3xl bg-gradient-to-b from-black/90  absolute top-0 left-0 w-full h-[50vh] ">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 lg:mt-56">
           <a
             href="#"
-            className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-full  "
+            className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-10 text-sm  rounded-full  "
             role="alert">
             <span className="text-xs bg-primary-800 rounded-full text-white px-4 py-1.5 mr-3">
               Мы открылись!
@@ -131,18 +131,21 @@ const Hero = ({ meetings }) => {
               />
             </svg>
           </a>
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900  md:text-5xl lg:text-6xl ">
-            Массажная студия Юрия Шпакова
+          <h1 className="text-2xl mb-2 font-extrabold tracking-tight leading-none text-white  md:text-5xl lg:text-6xl font-outline-4 ">
+            Массажная студия
           </h1>
-          <p className="mb-8 text-lg font-normal text-gray-800  lg:text-xl sm:px-16 xl:px-48 ">
+          <span className="mb-8 text-4xl font-extrabold tracking-tight leading-none text-black  md:text-5xl lg:text-6xl ">
+          Юрия Шпакова
+          </span>
+          <p className="mb-6 mt-4 text-lg font-normal text-gray-900  lg:text-xl sm:px-16 xl:px-48 ">
             Ваше здоровье – наша главная цель. Мы помогаем людям улучшить свое
             здоровье благодаря лимфодренажному, классическому, спортивному
             массажу.
           </p>
-          <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+          <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 ">
             <button
               onClick={handleClick}
-              className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-black rounded-lg focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+              className=" inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
               Записаться
               <svg
                 className="ml-2 -mr-1 w-5 h-5"
