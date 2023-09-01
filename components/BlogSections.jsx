@@ -11,7 +11,7 @@ export default function BlogSections() {
           </p>
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
-          <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+          {/* <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div className="flex justify-between items-center mb-5 text-gray-500">
               <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
                 <svg
@@ -26,7 +26,7 @@ export default function BlogSections() {
               <span className="text-sm">14 дней назад</span>
             </div>
             <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <a href="#">Как я выбрал лучший массаж и похудел на 5 кг</a>
+              <a href="fasting-massage">Как я выбрал лучший массаж и похудел на 5 кг</a>
             </h2>
             <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
               В статье мне захотелось поделиться моим опытом похудения. Я лежал
@@ -44,7 +44,7 @@ export default function BlogSections() {
                 <span className="font-medium dark:text-white">Марат Мусин</span>
               </div>
               <a
-                href="#"
+                href="/blog/fasting-massage"
                 className="inline-flex items-center font-medium text-white hover:underline">
                 Читать
                 <svg
@@ -60,7 +60,7 @@ export default function BlogSections() {
                 </svg>
               </a>
             </div>
-          </article>
+          </article> */}
           <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div className="flex justify-between items-center mb-5 text-gray-500">
               <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
@@ -81,13 +81,10 @@ export default function BlogSections() {
               <span className="text-sm">7 дней назад</span>
             </div>
             <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <a href="#">Our first project with React</a>
+              <a href="/blog/fasting-massage">Лучшие практики массажа</a>
             </h2>
             <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
-              Static websites are now used to bootstrap lots of websites and are
-              becoming the basis for a variety of tools that even influence both
-              web designers and developers influence both web designers and
-              developers.
+             Рассказываю как практики массажа я использую уже 18 лет и почему они действительно помогают моим клиентам
             </p>
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-4">
@@ -101,9 +98,9 @@ export default function BlogSections() {
                 </span>
               </div>
               <a
-                href="#"
-                className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
-                Read more
+                href="/blog/fasting-massage"
+                className="inline-flex items-center font-medium text-white dark:text-primary-500 hover:underline">
+                Подробнее
                 <svg
                   className="ml-2 w-4 h-4"
                   fill="currentColor"
