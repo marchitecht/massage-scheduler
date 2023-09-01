@@ -43,7 +43,6 @@ export default function Home({ res, meetings, services }) {
       <main>
         <Hero meetings={jsonMeetings} />
       </main>
-      
     </>
   );
 }

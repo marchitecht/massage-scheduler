@@ -25,14 +25,16 @@ const Hero = ({ meetings }) => {
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/df28dbc6-9e6c-4487-b182-58f33fafed3e/-/scale_crop/432x332/center/"
+              src="https://ucarecdn.com/8b7d600f-9175-42d3-86ed-9141acfd38b8/-/scale_crop/432x432/center/"
+
               alt=""
             />
           </div>
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/8b7d600f-9175-42d3-86ed-9141acfd38b8/-/scale_crop/432x432/center/"
+              src="https://ucarecdn.com/df28dbc6-9e6c-4487-b182-58f33fafed3e/-/scale_crop/432x332/center/"
+
               alt=""
             />
           </div>
