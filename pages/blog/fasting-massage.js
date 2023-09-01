@@ -122,101 +122,7 @@ export default function Page(params) {
       </main>
       
       
-      {/* <aside
-        aria-label="Related articles"
-        className="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
-        <div className="px-4 mx-auto max-w-screen-xl">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">
-            Related articles
-          </h2>
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-            <article className="max-w-xs">
-              <a href="#">
-                <img
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-1.png"
-                  className="mb-5 rounded-lg"
-                  alt="Image 1"
-                />
-              </a>
-              <h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                <a href="#">Our first office</a>
-              </h2>
-              <p className="mb-4 font-light text-gray-500 dark:text-gray-400">
-                Over the past year, Volosoft has undergone many changes! After
-                months of preparation.
-              </p>
-              <a
-                href="#"
-                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                Read in 2 minutes
-              </a>
-            </article>
-            <article className="max-w-xs">
-              <a href="#">
-                <img
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-2.png"
-                  className="mb-5 rounded-lg"
-                  alt="Image 2"
-                />
-              </a>
-              <h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                <a href="#">Enterprise design tips</a>
-              </h2>
-              <p className="mb-4 font-light text-gray-500 dark:text-gray-400">
-                Over the past year, Volosoft has undergone many changes! After
-                months of preparation.
-              </p>
-              <a
-                href="#"
-                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                Read in 12 minutes
-              </a>
-            </article>
-            <article className="max-w-xs">
-              <a href="#">
-                <img
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-3.png"
-                  className="mb-5 rounded-lg"
-                  alt="Image 3"
-                />
-              </a>
-              <h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                <a href="#">We partnered with Google</a>
-              </h2>
-              <p className="mb-4 font-light text-gray-500 dark:text-gray-400">
-                Over the past year, Volosoft has undergone many changes! After
-                months of preparation.
-              </p>
-              <a
-                href="#"
-                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                Read in 8 minutes
-              </a>
-            </article>
-            <article className="max-w-xs">
-              <a href="#">
-                <img
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-4.png"
-                  className="mb-5 rounded-lg"
-                  alt="Image 4"
-                />
-              </a>
-              <h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                <a href="#">Our first project with React</a>
-              </h2>
-              <p className="mb-4 font-light text-gray-500 dark:text-gray-400">
-                Over the past year, Volosoft has undergone many changes! After
-                months of preparation.
-              </p>
-              <a
-                href="#"
-                className="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                Read in 4 minutes
-              </a>
-            </article>
-          </div>
-        </div>
-      </aside> */}
+      
       <section className="bg-white dark:bg-gray-900">
         
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
@@ -266,11 +172,9 @@ export default function Page(params) {
                   </button>
                 </div>
               </div>
-            
-            </form>
             {isOpen && (
                <div
-               className="flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800"
+               className="flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800 ml-3 mt-8 lg:ml-44"
                role="alert">
                <svg
                  className="w-5 h-5 text-blue-600 dark:text-blue-500 rotate-45"
@@ -286,9 +190,33 @@ export default function Page(params) {
                    d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
                  />
                </svg>
-               <div className="pl-4 text-sm font-normal">Вы успешно записаны!</div>
+               <div className="pl-4 text-sm font-normal">Мы будем слать вам письма!</div>
              </div>
             )}
+            <a
+            href="/"
+               className="flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800 ml-3 mt-8 lg:ml-44"
+               role="alert">
+               
+               <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 ariaHidden="true"
+                className="w-6 h-6 text-gray-800 dark:text-white"
+                viewBox="0 0 14 10"
+                    >
+                    <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13 5H1m0 0l4 4M1 5l4-4"
+                    ></path>
+                 </svg>
+               <div className="pl-4 text-sm font-normal">На главную</div>
+             </a>
+            
+            </form>
           </div>
         </div>
       </section>
