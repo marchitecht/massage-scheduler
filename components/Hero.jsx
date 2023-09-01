@@ -109,13 +109,13 @@ const Hero = ({ meetings }) => {
           </div>
         </div>
       </section>
-      <section className=" grid px-10 py-44 lg:py-4 mx-auto max-w-screen-3xl bg-gradient-to-b from-black/90  absolute top-0 left-0 w-full h-[50vh] ">
+      <section className=" grid px-10 py-36 lg:py-4 mx-auto max-w-screen-3xl bg-gradient-to-b from-black/90  absolute top-0 left-0 w-full  ">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12 lg:mt-56">
           <a
             href="#"
             className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-10 text-sm  rounded-full  "
             role="alert">
-            <span className="text-xs bg-primary-800 rounded-full text-white px-4 py-1.5 mr-3">
+            <span className="text-xs bg-primary-800 rounded-full text-white px-4 py-2.5 mr-3">
               Мы открылись!
             </span>{" "}
             <span className="text-sm font-medium text-white">
@@ -136,10 +136,10 @@ const Hero = ({ meetings }) => {
           <h1 className="text-2xl mb-2 font-extrabold tracking-tight leading-none text-white  md:text-5xl lg:text-6xl font-outline-4 ">
             Массажная студия
           </h1>
-          <span className="mb-8 text-4xl font-extrabold tracking-tight leading-none text-black  md:text-5xl lg:text-6xl ">
+          <span className="mb-8 text-4xl font-extrabold tracking-tight leading-none text-white  md:text-5xl lg:text-6xl ">
           Юрия Шпакова
           </span>
-          <p className="mb-6 mt-4 text-lg font-normal text-gray-900  lg:text-xl sm:px-16 xl:px-48 ">
+          <p className="mb-6 mt-4 text-lg font-normal text-white  lg:text-xl sm:px-16 xl:px-48 ">
             Ваше здоровье – наша главная цель. Мы помогаем людям улучшить свое
             здоровье благодаря лимфодренажному, классическому, спортивному
             массажу.
