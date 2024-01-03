@@ -47,7 +47,6 @@ export default function Home({ res, meetings, services, meetingsCos }) {
         <div className="py-4 px-4 mx-auto max-w-screen-xl text-center lg:py-12 lg:px-12  ">
           <nav>
             <a
-              href="#"
               onClick={() => handleTabClick("massage")}
               className={`inline-flex justify-between items-center py-1 px-1 text-sm rounded-full ${
                 activeTab === "massage" ? "bg-gray-200" : "bg-primary-800"
@@ -61,7 +60,6 @@ export default function Home({ res, meetings, services, meetingsCos }) {
               </span>{" "}
             </a>
             <a
-              href="#"
               onClick={() => handleTabClick("cosmetology")}
               className={`inline-flex justify-between items-center py-1 px-1 text-sm rounded-full ${
                 activeTab === "cosmetology" ? "bg-gray-200" : "bg-primary-800"
