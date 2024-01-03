@@ -95,8 +95,7 @@ export default function Home({ res, meetings, services, meetingsCos }) {
 }
 
 export async function getServerSideProps() {
-  // const req = await fetch("https://schpakov.com/api/sheets");
-  // const res = await req.json();
+ 
 
   const reqMeet = await fetch("https://schpakov.com/api/meetings");
   const resMeet = await reqMeet.json();
@@ -109,7 +108,6 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      // res,
       meetings: resMeet.data,
       meetingsCos: resMeetC.data,
     },

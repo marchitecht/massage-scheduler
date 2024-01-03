@@ -9,7 +9,7 @@ export default function Plans(props) {
   //API CALL
   useEffect(() => {
     async function getData() {
-      const resServices = await fetch("http://localhost:3000/api/services");
+      const resServices = await fetch("https://schpakov.com/api/services");
       const services = await resServices?.json();
       setServices(services);
     }
