@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 
 export default function Plans(props) {
-  console.log(props, "PROPS");
   const [services, setServices] = useState();
   const { stepNext } = props;
 
@@ -17,7 +16,6 @@ export default function Plans(props) {
   }, []);
 
   const [selected, setSelected] = useState();
-  // console.log(selected, 'SELECTED');
   useEffect(() => {
     if (services) {
       setSelected(services[0]);
@@ -25,13 +23,10 @@ export default function Plans(props) {
   }, [services]);
 
   const oneHour = new Date(new Date().getTime() + 1 * 60 * 60 * 1000);
-  // console.log(oneHour, "ONE");
 
   const hourAndHalf = new Date(new Date().getTime() + 1.5 * 60 * 60 * 1000);
-  // console.log(hourAndHalf, "ONEHALF");
 
   const twoHours = new Date(new Date().getTime() + 2 * 60 * 60 * 1000);
-  // console.log(twoHours, "TWO");
 
   return (
     <div className="w-full px-4 py-16">
