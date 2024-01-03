@@ -1,11 +1,13 @@
+// import styles from "../styles/Hero.module.css";
 import { useRef } from "react";
 import { AiOutlineCalendar } from "react-icons/ai";
-import Calendar from "./Calendar";
 import ContentSection from "./ContentSection";
 import Link from "next/link";
 import BlogSections from "./BlogSections";
+import CalendarCosm from "./CalendarCosm";
+import ContentSectionCos from "./ContentSectionCos";
 
-const Hero = ({ meetings }) => {
+const Cosmetology = ({ meetings }) => {
   const ref = useRef(null);
   const handleClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
@@ -17,44 +19,21 @@ const Hero = ({ meetings }) => {
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/84752eb1-8858-4ef8-b695-8f91528e55cc/-/scale_crop/832x1032/center/"
+              src="https://ucarecdn.com/5977c3ad-a250-4251-8aa0-1fb6840ba107/-/scale_crop/432x550/center/"
               alt=""
             />
           </div>
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/8b7d600f-9175-42d3-86ed-9141acfd38b8/-/scale_crop/432x432/center/"
+              src="https://ucarecdn.com/25377d05-f83c-4770-b08b-d5b20a514a0e/-/scale_crop/432x550/center/"
               alt=""
             />
           </div>
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/df28dbc6-9e6c-4487-b182-58f33fafed3e/-/scale_crop/432x332/center/"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="grid gap-4">
-          <div>
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/5f09c26f-8dec-42c5-b259-e58fca36deed/-/scale_crop/432x432/center/"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/2f4d6a46-35a8-42d9-84b5-34ab65ddb986/"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/37f6f9a6-d0fd-4bfb-8cee-e66e0059b844/"
+              src="https://ucarecdn.com/ebcc541a-15db-4f09-824e-8b1f2bb8d084/-/scale_crop/500x550/"
               alt=""
             />
           </div>
@@ -63,21 +42,44 @@ const Hero = ({ meetings }) => {
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/69e74a91-bf11-4af3-b121-5f3a577f772e/"
+              src="https://ucarecdn.com/11429301-e562-4028-953b-1fcba6f83e6b/-/scale_crop/500x550/center/"
               alt=""
             />
           </div>
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/8556712f-2ba7-4f10-b265-dc7b4d745cf2/-/scale_crop/432x432/center/"
+              src="https://ucarecdn.com/c979d315-8a34-4c11-a018-2c0e5d179760/-/scale_crop/450x700/center/"
               alt=""
             />
           </div>
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/87c21c9c-8005-46c1-9746-4595f7f9c67a/"
+              src="https://ucarecdn.com/6fed89b1-dda5-45fb-998e-732e2c3480b9/-/scale_crop/450x500/center/"
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="grid gap-4">
+          <div>
+            <img
+              className="h-auto max-w-full rounded-lg"
+              src="https://ucarecdn.com/5d61e9a2-51ec-418f-8882-0cb29ab82354/-/scale_crop/500x600/center/"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              className="h-auto max-w-full rounded-lg"
+              src="https://ucarecdn.com/344f5ecd-ed88-4403-83c4-bd93d2ef194f/-/scale_crop/450x600/center/"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              className="h-auto max-w-full rounded-lg"
+              src="https://ucarecdn.com/accc0dc4-1120-4144-8360-eb14508192c8/-/scale_crop/500x600/center"
               alt=""
             />
           </div>
@@ -86,21 +88,21 @@ const Hero = ({ meetings }) => {
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/a2aa29d4-1ae7-4cae-bfb2-dfc159c212c3/-/scale_crop/432x432/center/"
+              src="https://ucarecdn.com/77a2818d-8874-4b29-af22-beddf81a36f6/-/scale_crop/500x550/-/quality/smart_retina/-/format/auto/"
               alt=""
             />
           </div>
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/09e5c785-0c99-4506-a53c-26f3af708a29/-/scale_crop/732x1032/center/"
+              src="https://ucarecdn.com/accc0dc4-1120-4144-8360-eb14508192c8/-/scale_crop/500x650/-/quality/smart_retina/-/format/auto/"
               alt=""
             />
           </div>
           <div>
             <img
               className="h-auto max-w-full rounded-lg"
-              src="https://ucarecdn.com/75e22394-7059-4284-9802-0559914166d2/-/preview/938x432/-/quality/smart/-/format/auto/"
+              src="https://ucarecdn.com/bd05c624-e53d-48d7-8dd4-9e7eae629a18/-/scale_crop/500x650/-/quality/smart_retina/-/format/auto/"
               alt=""
             />
           </div>
@@ -109,15 +111,15 @@ const Hero = ({ meetings }) => {
       <section className=" grid px-10 py-36 lg:py-4 mx-auto max-w-screen-3xl bg-gradient-to-b from-black/90  absolute top-0 left-0 w-full  ">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-44 lg:px-12  ">
           <h1 className="text-2xl mb-2 font-extrabold tracking-tight leading-none text-white  md:text-5xl lg:text-6xl font-outline-4 ">
-            Массажная студия
+            Косметология
           </h1>
           <span className=" text-4xl font-extrabold tracking-tight leading-none text-white  md:text-5xl lg:text-6xl ">
             Юрия Шпакова
           </span>
           <p className="mb-20  mt-20  text-lg font-normal text-white  lg:text-xl sm:px-16 xl:px-38 ">
-            Ваше здоровье – наша главная цель. Мы помогаем людям улучшить свое
-            здоровье благодаря лимфодренажному, классическому, спортивному
-            массажу.
+            Мы помогаем людям очистить кожу лица. Наш центр косметологии
+            предлагает необходимые процедуры, чтобы восстановить улучшение кожи,
+            поддержание молодости и создание неповторимого образа.
           </p>
           <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 ">
             <button
@@ -157,10 +159,10 @@ const Hero = ({ meetings }) => {
       </section>
 
       <div ref={ref}>
-        <Calendar meetings={meetings} />
+        <CalendarCosm meetings={meetings} />
       </div>
 
-      <ContentSection />
+      <ContentSectionCos />
       <BlogSections />
       <footer className=" shadow bg-black ">
         <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
@@ -207,4 +209,4 @@ const Hero = ({ meetings }) => {
   );
 };
 
-export default Hero;
+export default Cosmetology;

@@ -20,7 +20,7 @@ export default function ContentSection(params) {
         <div className="grid grid-cols-2 gap-4 mt-8">
           <img
             className="w-full rounded-lg"
-            src="https://ucarecdn.com/09c2f091-fff1-49be-b849-49cf16ac10e2/"
+            src="https://ucarecdn.com/75e22394-7059-4284-9802-0559914166d2/-/preview/500x500/-/quality/smart_retina/-/format/auto/"
             alt="office content 1"
           />
           <img

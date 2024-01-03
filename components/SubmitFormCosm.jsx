@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import cx from "classnames";
 import dayjs from "dayjs";
-import Modal from "../components/Modal";
+import Modal from "./Modal";
+import ModalCosm from "./ModalCosm";
 
-const SubmitForm = ({ selected, bookingDate }) => {
+const SubmitFormCosm = ({ selected, bookingDate }) => {
   // console.log(bookingDate, 'bookingDate in submit form');
   const fullTime = dayjs().format("YYYY-MM-DD").concat("T").concat(selected);
   const date = dayjs().format("YYYY-MM-DD");
@@ -42,7 +43,8 @@ const SubmitForm = ({ selected, bookingDate }) => {
         </div>
       </form>
       {open && (
-        <Modal
+        <ModalCosm
+          setOpen={setOpen}
           bookingDate={bookingDate}
           open={open}
           onClose={handleCloseModal}
@@ -68,4 +70,4 @@ function Input({ label, placeholder }) {
   );
 }
 
-export default SubmitForm;
+export default SubmitFormCosm;

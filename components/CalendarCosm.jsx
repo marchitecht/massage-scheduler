@@ -18,19 +18,17 @@ import {
 import dayjs from "dayjs";
 import { Fragment, useEffect, useState } from "react";
 import { range } from "../utils/timeRange";
-import Radiogroup from "./Radiogroup";
+import RadiogroupCosm from "./RadiogroupCosm";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Calendar({ meetings, services }) {
+export default function CalendarCosm({ meetings, services }) {
   let today = startOfToday();
   let [selectedDay, setSelectedDay] = useState(today);
 
-  useEffect(() => {
-    // console.log(format(selectedDay, "dd.MM.yyyy"), "in useeff selecteday");
-  }, [selectedDay]);
+  useEffect(() => {}, [selectedDay]);
 
   let [currentMonth, setCurrentMonth] = useState(format(today, "MMM-yyyy"));
   let firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
@@ -121,7 +119,7 @@ export default function Calendar({ meetings, services }) {
                       !isEqual(day, selectedDay) &&
                         !isToday(day) &&
                         !isSameMonth(day, firstDayCurrentMonth) &&
-                        "text-red-400",
+                        "text-gray-400",
                       isEqual(day, selectedDay) && isToday(day) && "bg-red-500",
                       isEqual(day, selectedDay) &&
                         !isToday(day) &&
@@ -142,18 +140,10 @@ export default function Calendar({ meetings, services }) {
           <section className="mt-12 md:mt-0 md:pl-14">
             <h2 className="font-semibold text-white">Выберите время:</h2>
             <div className="mt-4 space-y-1 text-sm leading-6 text-white">
-              <Radiogroup
+              <RadiogroupCosm
                 bookingDate={format(selectedDay, "dd.MM.yyyy")}
                 time={arrDates}
-                // startTime={dayjs(meeting.startDatetime).format("HH:mm")}
-                // endTime={dayjs(meeting.endDatetime).format("HH:mm")}
-                // key={meeting.id}
               />
-              {/* // <Meeting meeting={meeting} key={meeting.id} />
-              //   ))
-              // ) : (
-              //   <Radiogroup />
-              // )} */}
             </div>
           </section>
         </div>

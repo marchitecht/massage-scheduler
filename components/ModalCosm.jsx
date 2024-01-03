@@ -1,9 +1,9 @@
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import Plans from "./Plans";
-import Credentials from "./Credentials";
+import PlansCosm from "./PlansCosm";
+import CredentialsCosm from "./CredentialsCosm";
 
-function Modal({ open, onClose, selected, bookingDate }) {
+function ModalCosm({ open, onClose, selected, bookingDate, setOpen }) {
   const [step, setStep] = useState(1);
   const [datas, setDatas] = useState({});
 
@@ -16,9 +16,10 @@ function Modal({ open, onClose, selected, bookingDate }) {
     });
   }
   const obj = {
-    1: <Plans stepNext={stepNext} />,
+    1: <PlansCosm stepNext={stepNext} />,
     2: (
-      <Credentials
+      <CredentialsCosm
+        setOpen={setOpen}
         service={datas}
         startTime={selected}
         bookingDate={bookingDate}
@@ -29,7 +30,6 @@ function Modal({ open, onClose, selected, bookingDate }) {
   const stepDec = () => {
     setStep((step) => step - 1);
   };
-
   return (
     <Transition appear show={open} as={Fragment}>
       <Dialog onClose={onClose} className="fixed inset-0 z-10 overflow-y-auto">
@@ -69,4 +69,4 @@ function Modal({ open, onClose, selected, bookingDate }) {
     </Transition>
   );
 }
-export default Modal;
+export default ModalCosm;

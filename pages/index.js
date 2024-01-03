@@ -2,14 +2,20 @@ import Head from "next/head";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-import Calendar from "../components/Calendar";
 import Radiogroup from "../components/Radiogroup";
 
 import dayjs from "dayjs";
-import Plans from "../components/Plans";
 import ContentSection from "../components/ContentSection";
+import Cosmetology from "../components/Cosmetology";
+import { useState } from "react";
 
-export default function Home({ res, meetings, services }) {
+export default function Home({ res, meetings, services, meetingsCos }) {
+  const [activeTab, setActiveTab] = useState("massage");
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
   const jsonMeetings = meetings.map(
     ([id, startDatetime, endDatetime, status, name]) => ({
       id: Number(id),
@@ -19,19 +25,16 @@ export default function Home({ res, meetings, services }) {
       name,
     })
   );
-  //   const jsonServices = services.map(
-  //     ([id, title, description, minutes, price]) => ({
-  //       id: Number(id),
-  //       title,
-  //       description,
-  //       minutes: Number(minutes),
-  //       price: Number(price)
-  //     })
-  //   ).slice(1)
-  // console.log(jsonServices,'jsonServicesjsonServices');
-  // startDatetime: dayjs(startDatetime).format(`YYYY-DD-MMTHH:mm`),
-  // endDatetime: dayjs(endDatetime).format(`YYYY-DD-MMTHH:mm`),
-  // console.log(jsonMeetings, "jsonMeetings");
+  const jsonMeetingsC = meetingsCos.map(
+    ([id, startDatetime, endDatetime, status, name]) => ({
+      id: Number(id),
+      startDatetime,
+      endDatetime,
+      status,
+      name,
+    })
+  );
+
   return (
     <>
       <Head>
@@ -40,28 +43,75 @@ export default function Home({ res, meetings, services }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Hero meetings={jsonMeetings} />
-      </main>
+      <section className="absolute top-0 left-0 right-0 z-10">
+        <div className="py-4 px-4 mx-auto max-w-screen-xl text-center lg:py-12 lg:px-12  ">
+          <nav>
+            <a
+              href="#"
+              onClick={() => handleTabClick("massage")}
+              className={`inline-flex justify-between items-center py-1 px-1 text-sm rounded-full ${
+                activeTab === "massage" ? "bg-gray-200" : "bg-primary-800"
+              }`}>
+              <span
+                className={`text-xs bg-primary-800 rounded-full  px-2 py-1.5  ${
+                  activeTab === "massage" ? "text-black" : "text-white"
+                }`}>
+                {" "}
+                Массаж
+              </span>{" "}
+            </a>
+            <a
+              href="#"
+              onClick={() => handleTabClick("cosmetology")}
+              className={`inline-flex justify-between items-center py-1 px-1 text-sm rounded-full ${
+                activeTab === "cosmetology" ? "bg-gray-200" : "bg-primary-800"
+              }`}>
+              <span
+                className={`text-xs bg-primary-800 rounded-full  px-2 py-1.5  ${
+                  activeTab === "cosmetology" ? "text-black" : "text-white"
+                }`}>
+                Косметология
+              </span>{" "}
+            </a>
+          </nav>
+        </div>
+      </section>
+      <div className="relative">
+        <main>
+          {activeTab === "massage" && (
+            <>
+              <Hero meetings={jsonMeetings} />
+            </>
+          )}
+          {activeTab === "cosmetology" && (
+            <>
+              <Cosmetology meetings={jsonMeetingsC} />
+            </>
+          )}
+        </main>
+      </div>
     </>
   );
 }
 
 export async function getServerSideProps() {
-  const req = await fetch("https://schpakov.com/api/sheets");
-  const res = await req.json();
+  // const req = await fetch("https://schpakov.com/api/sheets");
+  // const res = await req.json();
 
   const reqMeet = await fetch("https://schpakov.com/api/meetings");
   const resMeet = await reqMeet.json();
+
+  const reqMeetC = await fetch("http://schpakov.com/api/meetingsCos");
+  const resMeetC = await reqMeetC.json();
 
   const reqServices = await fetch("https://schpakov.com/api/services");
   const resServices = await reqServices.json();
 
   return {
     props: {
-      res,
+      // res,
       meetings: resMeet.data,
-      // services: resServices.data
+      meetingsCos: resMeetC.data,
     },
   };
 }

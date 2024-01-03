@@ -4,8 +4,8 @@ import { ru } from "date-fns/locale";
 import uuid from "react-uuid";
 import { Dialog } from "@headlessui/react";
 
-function Credentials(props) {
-  const { startTime, bookingDate, service } = props;
+function CredentialsCosm(props) {
+  const { startTime, bookingDate, service, setOpen } = props;
 
   function addMinutes(date, minutes) {
     date.setMinutes(date.getMinutes() + minutes);
@@ -16,6 +16,7 @@ function Credentials(props) {
   const [email, setEmail] = useState("");
   const [data, setData] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = {
@@ -37,7 +38,7 @@ function Credentials(props) {
     };
 
     try {
-      const response = await fetch("/api/submit", {
+      const response = await fetch("/api/submitCos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,6 +51,9 @@ function Credentials(props) {
 
         await setData(result);
         await setIsOpen(true);
+        setIsExploding(true);
+        setOpen(false);
+        window.location.reload();
       } else {
         throw new Error("Request failed");
       }
@@ -153,4 +157,4 @@ function Credentials(props) {
     </div>
   );
 }
-export default Credentials;
+export default CredentialsCosm;

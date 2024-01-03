@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 
-export default function Plans(props) {
-  console.log(props, "PROPS");
+export default function PlansCosm(props) {
   const [services, setServices] = useState();
   const { stepNext } = props;
 
   //API CALL
   useEffect(() => {
     async function getData() {
-      const resServices = await fetch("http://localhost:3000/api/services");
+      const resServices = await fetch("http://localhost:3000/api/cosmetology");
       const services = await resServices?.json();
       setServices(services);
     }
