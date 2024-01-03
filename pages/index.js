@@ -61,7 +61,7 @@ export default function Home({ res, meetings, services, meetingsCos }) {
               </span>{" "}
             </a>
             <a
-              href="/cosmetology"
+              href="/"
               onClick={() => handleTabClick("cosmetology")}
               className={`inline-flex justify-between items-center py-1 px-1 text-sm rounded-full ${
                 activeTab === "cosmetology" ? "bg-gray-200" : "bg-primary-800"
