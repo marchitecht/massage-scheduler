@@ -8,7 +8,7 @@ export default function Plans(props) {
   //API CALL
   useEffect(() => {
     async function getData() {
-      const resServices = await fetch("https://schpakov.com/api/services");
+      const resServices = await fetch("http://schpakov.ru/api/services");
       const services = await resServices?.json();
       setServices(services);
     }
@@ -17,10 +17,9 @@ export default function Plans(props) {
   // console.log(services, "services minutes");
 
   const [selected, setSelected] = useState();
-// console.log(selected, 'SELECTED');
+  // console.log(selected, 'SELECTED');
   useEffect(() => {
     if (services) {
-     
       setSelected(services[0]);
     }
   }, [services]);
@@ -40,7 +39,7 @@ export default function Plans(props) {
         <RadioGroup
           value={selected}
           onChange={(e) => {
-            setSelected(e)
+            setSelected(e);
           }}>
           {/* <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label> */}
           <div className="space-y-2">
@@ -60,8 +59,7 @@ export default function Plans(props) {
                   }
                     relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none
                     `
-                }
-                >
+                }>
                 {({ active, checked }) => (
                   <>
                     <div className="flex w-full items-center justify-between">

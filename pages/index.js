@@ -93,13 +93,13 @@ export default function Home({ res, meetings, services, meetingsCos }) {
 }
 
 export async function getServerSideProps() {
-  const reqMeet = await fetch("https://schpakov.com/api/meetings");
+  const reqMeet = await fetch("http://schpakov.ru/api/meetings");
   const resMeet = await reqMeet.json();
 
-  const reqMeetC = await fetch("https://schpakov.com/api/meetingsCos");
+  const reqMeetC = await fetch("http://schpakov.ru/api/meetingsCos");
   const resMeetC = await reqMeetC.json();
 
-  const reqServices = await fetch("https://schpakov.com/api/services");
+  const reqServices = await fetch("http://schpakov.ru/api/services");
   const resServices = await reqServices.json();
 
   return {
