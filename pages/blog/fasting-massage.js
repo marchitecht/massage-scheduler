@@ -1,39 +1,37 @@
 import { useState } from "react";
 
 export default function Page(params) {
-    const [email, setEmail] = useState("");
-    const [data, setData] = useState(null);
-    const [isOpen, setIsOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [data, setData] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const form = {
-          email: email,
-        };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = {
+      email: email,
+    };
 
-        try {
-          const response = await fetch("/api/emails", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ form: form }),
-          });
-    
-          if (response.ok) {
-            const result = await response.json();
-    
-            await setData(result);
-            await setIsOpen(true);
+    try {
+      const response = await fetch("/api/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ form: form }),
+      });
 
-          } else {
-            throw new Error("Request failed");
-          }
-        } catch (error) {
-          console.error(error);
-        }
-      };
-    
+      if (response.ok) {
+        const result = await response.json();
+
+        await setData(result);
+        await setIsOpen(true);
+      } else {
+        throw new Error("Request failed");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -70,68 +68,80 @@ export default function Page(params) {
                 </div>
               </address>
               <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl">
-               Лучшие практики массажа
+                Лучшие практики массажа
               </h1>
             </header>
             <p className="lead">
-            Здравствуйте Меня зовут Юрий Юрьевич! Я Работаю массажистом уже 18 лет, коротко о главном, Желаю всем крепкого здоровья и приглашаю к себе в студию!
+              Здравствуйте Меня зовут Юрий Юрьевич! Я Работаю массажистом уже 18
+              лет, коротко о главном, Желаю всем крепкого здоровья и приглашаю к
+              себе в студию!
             </p>
-          <hr className="mb-4 mt-4" />
+            <hr className="mb-4 mt-4" />
             <p>
-            Поскольку в мире очень много  массажей И в частности их названий Я бы хотел выделить наиболее  самые важные два вида массажей!
+              Поскольку в мире очень много массажей И в частности их названий Я
+              бы хотел выделить наиболее самые важные два вида массажей!
             </p>
             <p>
-            На мой взгляд это основа основ всех массажей в мире по которым работают все специалисты в России и Европе!
+              На мой взгляд это основа основ всех массажей в мире по которым
+              работают все специалисты в России и Европе!
             </p>
-          
-              <img
+
+            <img
               className="rounded-2xl mt-4 mb-4 mx-auto"
-                src="https://ucarecdn.com/a2aa29d4-1ae7-4cae-bfb2-dfc159c212c3/"
-                alt=""
-              />
-         
-            <h2 className="text-2xl font-extrabold tracking-tight leading-none text-gray-900 mb-2">Классический массаж</h2>
-            <p>
-            И Первый из них общий классический массаж.
-Общий классический массаж выполняется в ручную по всему телу и оказывает положительный эффект не только на кожу и мышцы но и кровеносную и лимфатическую систему, что служит отличным показаниям для нашего здоровья!
+              src="https://ucarecdn.com/a2aa29d4-1ae7-4cae-bfb2-dfc159c212c3/"
+              alt=""
+            />
 
+            <h2 className="text-2xl font-extrabold tracking-tight leading-none text-gray-900 mb-2">
+              Классический массаж
+            </h2>
+            <p>
+              И Первый из них общий классический массаж. Общий классический
+              массаж выполняется в ручную по всему телу и оказывает
+              положительный эффект не только на кожу и мышцы но и кровеносную и
+              лимфатическую систему, что служит отличным показаниям для нашего
+              здоровья!
             </p>
-            
-            <h2 className="text-2xl font-extrabold tracking-tight leading-none text-gray-900 mb-2 mt-4">Лимфодренажный массаж</h2>
+
+            <h2 className="text-2xl font-extrabold tracking-tight leading-none text-gray-900 mb-2 mt-4">
+              Лимфодренажный массаж
+            </h2>
 
             <p>
-            И второй - это лимфодренажный массаж наиболее самый ценный, для человеческого организма.
+              И второй - это лимфодренажный массаж наиболее самый ценный, для
+              человеческого организма.
             </p>
             <p>
-            При лимфодренажном массаже ускоряется движение крови и лимфы следовательно, усиливается вывод продуктов распада из организма. Увеличивается количество раскрытых капилляров в тканях в результате улучшается венозное кровообращение, облегчается работа сердца. Повышается температура кожных покровов Что способствует улучшению окислительно-восстановительных процессов и более интенсивному снабжению тканей кровью!
+              При лимфодренажном массаже ускоряется движение крови и лимфы
+              следовательно, усиливается вывод продуктов распада из организма.
+              Увеличивается количество раскрытых капилляров в тканях в
+              результате улучшается венозное кровообращение, облегчается работа
+              сердца. Повышается температура кожных покровов Что способствует
+              улучшению окислительно-восстановительных процессов и более
+              интенсивному снабжению тканей кровью!
             </p>
             <img
               className="rounded-2xl mt-4 mb-4 mx-auto"
-                src="https://ucarecdn.com/8b7d600f-9175-42d3-86ed-9141acfd38b8/"
-                alt=""
-              />
-             <p>
-             Желаю всем крепкого здоровья и Приглашаю всех желающих к себе в массажную студию пройти курс массажа!
-             </p>
-            
-           
+              src="https://ucarecdn.com/8b7d600f-9175-42d3-86ed-9141acfd38b8/"
+              alt=""
+            />
+            <p>
+              Желаю всем крепкого здоровья и Приглашаю всех желающих к себе в
+              массажную студию пройти курс массажа!
+            </p>
           </article>
-         
-        
         </div>
       </main>
-      
-      
-      
+
       <section className="bg-white dark:bg-gray-900">
-        
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-md sm:text-center">
             <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
               Подпишись на наши новости
             </h2>
             <p className="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">
-             Мы публикуем успехи наших клиентов, делимся полезным опытом и рассказываем о пользе массажа
+              Мы публикуем успехи наших клиентов, делимся полезным опытом и
+              рассказываем о пользе массажа
             </p>
             <form action="#" onSubmit={handleSubmit}>
               <div className="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
@@ -139,7 +149,7 @@ export default function Page(params) {
                   <label
                     htmlFor="email"
                     className="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Ваш Email 
+                    Ваш Email
                   </label>
                   <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                     <svg
@@ -152,9 +162,8 @@ export default function Page(params) {
                     </svg>
                   </div>
                   <input
-                 onChange={(e) => setEmail(e.target.value)}
-                 value={email}
-
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     className="block p-3 pl-10 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Enter your email"
                     type="email"
@@ -164,58 +173,55 @@ export default function Page(params) {
                 </div>
                 <div>
                   <button
-                              onSubmit={handleSubmit}
-
+                    onSubmit={handleSubmit}
                     type="submit"
                     className="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                     Подписаться
                   </button>
                 </div>
               </div>
-            {isOpen && (
-               <div
-               className="flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800 ml-3 mt-8 lg:ml-44"
-               role="alert">
-               <svg
-                 className="w-5 h-5 text-blue-600 dark:text-blue-500 rotate-45"
-                 aria-hidden="true"
-                 xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 viewBox="0 0 18 20">
-                 <path
-                   stroke="currentColor"
-                   strokeLinecap="round"
-                   strokeLinejoin="round"
-                   strokeWidth={2}
-                   d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
-                 />
-               </svg>
-               <div className="pl-4 text-sm font-normal">Мы будем слать вам письма!</div>
-             </div>
-            )}
-            <a
-            href="/"
-               className="flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800 ml-3 mt-8 lg:ml-44"
-               role="alert">
-               
-               <svg
-                 xmlns="http://www.w3.org/2000/svg"
-                 fill="none"
-                 ariaHidden="true"
-                className="w-6 h-6 text-gray-800 dark:text-white"
-                viewBox="0 0 14 10"
-                    >
+              {isOpen && (
+                <div
+                  className="flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800 ml-3 mt-8 lg:ml-44"
+                  role="alert">
+                  <svg
+                    className="w-5 h-5 text-blue-600 dark:text-blue-500 rotate-45"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 18 20">
                     <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M13 5H1m0 0l4 4M1 5l4-4"
-                    ></path>
-                 </svg>
-               <div className="pl-4 text-sm font-normal">На главную</div>
-             </a>
-            
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
+                    />
+                  </svg>
+                  <div className="pl-4 text-sm font-normal">
+                    Мы будем слать вам письма!
+                  </div>
+                </div>
+              )}
+              <a
+                href="/"
+                className="flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800 ml-3 mt-8 lg:ml-44"
+                role="alert">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  ariaHidden="true"
+                  className="w-6 h-6 text-gray-800 dark:text-white"
+                  viewBox="0 0 14 10">
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 5H1m0 0l4 4M1 5l4-4"></path>
+                </svg>
+                <div className="pl-4 text-sm font-normal">На главную</div>
+              </a>
             </form>
           </div>
         </div>

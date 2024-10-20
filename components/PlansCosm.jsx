@@ -8,7 +8,7 @@ export default function PlansCosm(props) {
   //API CALL
   useEffect(() => {
     async function getData() {
-      const resServices = await fetch("http://schpakov.ru/api/cosmetology");
+      const resServices = await fetch("https://schpakov.ru/api/cosmetology");
       const services = await resServices?.json();
       setServices(services);
     }
